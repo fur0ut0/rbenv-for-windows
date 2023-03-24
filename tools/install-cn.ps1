@@ -17,9 +17,9 @@ $tag  = "v1.4.3"
 function download_binaries() {
     Write-Host -f blue "rbenv: 下载预编译二进制文件..."
 
-    curl -sSL "$repo/releases/download/$tag/ruby.exe" -o "$env:RBENV_ROOT\rbenv\bin\ruby.exe"
+    Invoke-WebRequest "$repo/releases/download/$tag/ruby.exe" -OutFile "$env:RBENV_ROOT\rbenv\bin\ruby.exe"
 
-    curl -sSL "$repo/releases/download/$tag/rbenv-exec.exe" -o "$env:RBENV_ROOT\rbenv\libexec\rbenv-exec.exe"
+    Invoke-WebRequest "$repo/releases/download/$tag/rbenv-exec.exe" -OutFile "$env:RBENV_ROOT\rbenv\libexec\rbenv-exec.exe"
 
     Write-Host -f green "rbenv: 安装完成!"
 }
